@@ -1,0 +1,27 @@
+{
+  "name": "secret-base62",
+  "version": "0.0.1",
+  "description": "Generate random token using base62 which is alphanumeric with uppercase and lowercase.",
+  "main": "index.js",
+  "scripts": {
+    "lint": "eslint --cache src",
+    "start": "node --harmony-async-await index.js"
+  },
+  "author": "Evan Summers",
+  "license": "ISC",
+  "dependencies": {
+    "bluebird": "^3.4.6",
+    "lodash": "^4.17.2"
+  },
+  "devDependencies": {
+    "eslint": "^3.12.2"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/evanx/secret-base62.git"
+  },
+  "bugs": {
+    "url": "https://github.com/evanx/secret-base62/issues"
+  },
+  "homepage": "https://github.com/evanx/secret-base62#readme"
+}
