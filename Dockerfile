@@ -1,5 +1,6 @@
-FROM mhart/alpine-node
+FROM mhart/alpine-node:latest
 ADD package.json .
 RUN npm install
 ADD index.js .
-CMD ["node", "--harmony-async-await", "index.js"]
+ENV NODE_ENV production
+CMD ["node", "index.js"]
