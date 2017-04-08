@@ -1,6 +1,6 @@
 {
   "name": "secret-base62",
-  "version": "0.0.1",
+  "version": "0.0.5",
   "description": "Generate random token using base62 which is alphanumeric with uppercase and lowercase.",
   "main": "index.js",
   "scripts": {

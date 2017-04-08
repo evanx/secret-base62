@@ -14,14 +14,16 @@ It is implemented as follows:
 ```javascript
 const assert = require('assert');
 const crypto = require('crypto');
-const letters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'; // exclude I and O since too similar to 0 and 1
-const digits = '0123456789'; // omit 0 and 1 to avoid potential confusion with O and I (and perhaps 'l')
+const digits = '0123456789';
+const letters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
 const charset = [digits, letters, letters.toLowerCase()].join('');
 assert.equal(charset.length, 62);
 const length = parseInt(process.env.length || '16');
-const string = crypto.randomBytes(length)
-.map(value => charset.charCodeAt(Math.floor(value*charset.length/256)))
-.toString();
+const string = crypto.randomBytes(length).map(
+    value => charset.charCodeAt(
+        Math.floor(value*charset.length/256)
+    )
+).toString();
 console.log(string);
 ```
 where we generate an array of random bytes (values 0 to 255 inclusive) of the desired `length` and then map each into our charset:
@@ -45,12 +47,9 @@ docker run -e length=32 secret-base62
 ```
 which outputs length `32` token e.g. `CMZRUgDU5RxwzhDFh7fV5EKAKz6HmXdb`
 
-You can then use this for a secret URL e.g. for a Telegram Bot webhook, or some other purpose.
-
 ## Related
 
-See the following related project which is case-insensitive base32.
-
-https://github.com/evanx/secret-base32
-
-Base32 is better for hand-written backups since some letters have similar shapes in lowercase e.g. c, s, u, v
+- https://github.com/evanx/secret-base26
+- https://github.com/evanx/secret-base32
+- https://github.com/evanx/secret-base36
+- https://github.com/evanx/secret-base56
